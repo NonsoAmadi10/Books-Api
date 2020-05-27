@@ -9,7 +9,7 @@ export class BooksController {
     constructor(private readonly bookService: BookService) { }
     
     @Get()
-    findAll(): Promise<Book[]> {
+    async findAll(): Promise<Book[]> {
         return this.bookService.findAll()
     }
 
@@ -19,7 +19,7 @@ export class BooksController {
     }
 
     @Get(':id')
-    findOne(@Param() id): Promise<Book>{
+   async findOne(@Param('id') id): Promise<Book>{
         return this.bookService.findOne(id)
     }
 }

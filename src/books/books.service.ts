@@ -12,8 +12,8 @@ export class BookService {
     return await this.bookModel.find()
   }
 
-  async findOne(id: string): Promise<Book> {
-    return await this.bookModel.findOne({_id: id})
+  async findOne(id: any): Promise<Book> {
+    return await this.bookModel.findById(id).exec()
   }
 
   async createNew(data: BookDTO): Promise<Book> {
