@@ -21,4 +21,16 @@ export class BookService {
 
     return await addOne.save()
   }
+
+  async updateOne(id: any, data:BookDTO): Promise<Book>{
+    const updateData = await this.bookModel.findByIdAndUpdate(id, data, { new: true })
+    
+    return updateData;
+  }
+
+  async deleteOne(id: any): Promise<Book> {
+    const deleteCustomer = await this.bookModel.findByIdAndRemove(id);
+
+    return deleteCustomer;
+  }
 }

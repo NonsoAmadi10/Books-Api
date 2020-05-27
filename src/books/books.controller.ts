@@ -22,4 +22,14 @@ export class BooksController {
    async findOne(@Param('id') id): Promise<Book>{
         return this.bookService.findOne(id)
     }
+
+    @Put(':id')
+    async updateOne(@Param('id') id, @Body() data: BookDTO): Promise<Book>{
+        return this.bookService.updateOne(id, data)
+    }
+
+    @Delete(':id')
+    async deleteOne(@Param('id') id): Promise<Book> {
+        return this.bookService.deleteOne(id)
+    }
 }
