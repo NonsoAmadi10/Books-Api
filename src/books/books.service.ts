@@ -15,4 +15,10 @@ export class BookService {
   async findOne(id: string): Promise<Book> {
     return await this.bookModel.findOne({_id: id})
   }
+
+  async createNew(data: BookDTO): Promise<Book> {
+    const addOne = new this.bookModel(data)
+
+    return await addOne.save()
+  }
 }
